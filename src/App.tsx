@@ -1,25 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react'
+import DatePicker, { DayValue, DayRange, Day } from 'react-modern-calendar-datepicker'
+import 'react-modern-calendar-datepicker/lib/DatePicker.css';
+// import { Typography } from '@mui/material';
 
 function App() {
+  const [day, setDay] = React.useState<DayValue>(null);
+  const [dayRange, setDayRange] = React.useState<DayRange>({
+    from: null,
+    to: null
+  });
+  const [days, setDays] = React.useState<Day[]>([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <DatePicker value={dayRange} onChange={setDayRange} />
+    </>
   );
 }
 
